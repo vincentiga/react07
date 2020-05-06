@@ -10,29 +10,27 @@ const oneSimpsons = {
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      props: oneSimpsons
+  
+    state = {
+      character: oneSimpsons
     };
-    this.getSimpsons = this.getSimpsons.bind(this);
-  }
-  getSimpsons() {
+  getSimpsons = () => {
     // Send the request
     axios.get('https://simpsons-quotes-api.herokuapp.com/quotes')
       // Extract the DATA from the received response
       .then(response => response.data) 
       // Use this data to update the state
-      .then(data => {           
+      .then(data => {
+        console.log('data', data)           
         this.setState({
-          props: data[0], 
+          character: data[0], 
         });
     });
   }
   render() {
     return (
       <div className="App">
-        <Simpsons props={this.state.props} />
+        <Simpsons character={this.state.character} />
         <button type="button" onClick={this.getSimpsons}>PRESS</button>
       </div>
     );

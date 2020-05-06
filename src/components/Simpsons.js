@@ -1,19 +1,19 @@
-// src/components/Displayprops.js
+// src/components/Displaycharacter.js
 import React from 'react';
   
 
 
-function Simpsons({ props }) {
+function Simpsons({ character }) {
   return (
     <div className="theSimpsons">
       <h1>Simpsons Quotes</h1>
       <p>Reload for another quote!</p>
-      <p>{props.character}</p>
+      <p>{character.character}</p>
       <img
-        src={props.image}
-        alt={props.character}
+        src={character.image}
+        alt={character.character}
       />
-        <p>{props.quote}</p>
+        <p>{character.quote}</p>
     </div>
   );
 };
